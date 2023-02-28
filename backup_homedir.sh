@@ -19,5 +19,12 @@ fi
 
 #Create the backup using tar command
 tar -czvf $backup_dir/$backup_file /home/$cuser/*
-echo "" 
-echo "Backup created in $backup_dir"
+echo ""
+if [ $? -eq 0 ] ;
+then
+        echo "Backup is Successful"
+        chown $cuser:$cuser $backup_dir
+        echo "Backup directory created $backup_dir"
+else
+        echo "Error occoured during backup"
+fi
