@@ -23,7 +23,7 @@ echo ""
 if [ $? -eq 0 ] ;
 then
         echo "Backup is Successful"
-        chown $cuser:$cuser $backup_dir
+        chown -R $cuser:$cuser $backup_dir
         echo "Backup directory created $backup_dir"
 else
         echo "Error occoured during backup"
