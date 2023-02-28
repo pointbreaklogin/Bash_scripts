@@ -16,18 +16,5 @@ if [ ! -d $backup_dir ]; then
   mkdir $backup_dir
 fi
 
-#changing ownership of backup dir
-#chown $cuser:$cuser $backup_dir
-
-#to test creation
-#touch $backup_dir/hai1
-#touch $backup_dir/hai2
-#touch $backup_dir/hai3
-#touch $backup_dir/hai4
-
-#test permission
-#chown $cuser:$cuser $backup_dir/*
-
-
 #Create the backup
 tar -czvf /home/$cuser/$backup_dir/$backup_file /home/$cuser/*
