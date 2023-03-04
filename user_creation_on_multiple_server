@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#automating user creation with bash script
+#must enable ssh key based login 
+#create a text file that includes all the server hostnames/IP addresses where you wish to add the user on.
+
+servers=$(cat /home/synnefo/server_ip.txt)
+echo "Enter the name of the new user:"
+read user
+echo "Enter the user id for new user: "
+read uid
+
+for i in $servers ;
+do
+        echo $i
+        ssh $i "sudo useradd -m -u $uid $user"
+        if [ $? -eq 0 ];
+        then
+                echo "User $user added on $i"
+        else
+                echo "Error on $i"
+        fi
+done
